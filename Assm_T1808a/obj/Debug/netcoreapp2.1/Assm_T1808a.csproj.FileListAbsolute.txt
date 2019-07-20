@@ -1,0 +1,11 @@
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\bin\Debug\netcoreapp2.1\Assm_T1808a.deps.json
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\bin\Debug\netcoreapp2.1\Assm_T1808a.runtimeconfig.json
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\bin\Debug\netcoreapp2.1\Assm_T1808a.runtimeconfig.dev.json
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\bin\Debug\netcoreapp2.1\Assm_T1808a.dll
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\bin\Debug\netcoreapp2.1\Assm_T1808a.pdb
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\obj\Debug\netcoreapp2.1\Assm_T1808a.csprojAssemblyReference.cache
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\obj\Debug\netcoreapp2.1\Assm_T1808a.csproj.CoreCompileInputs.cache
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\obj\Debug\netcoreapp2.1\Assm_T1808a.AssemblyInfoInputs.cache
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\obj\Debug\netcoreapp2.1\Assm_T1808a.AssemblyInfo.cs
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\obj\Debug\netcoreapp2.1\Assm_T1808a.dll
+C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a\obj\Debug\netcoreapp2.1\Assm_T1808a.pdb
