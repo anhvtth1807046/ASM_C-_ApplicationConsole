@@ -68,7 +68,6 @@ namespace Assm_T1808a.scenes
                         {
                             return true;
                         }
-                        break;
                     case 2:
                         controller.DoRegister();
                         break;

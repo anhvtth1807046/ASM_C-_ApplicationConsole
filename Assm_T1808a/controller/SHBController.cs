@@ -16,7 +16,7 @@ namespace Assm_T1808a.controller
 
         public void Deposit()
         {
-            Console.WriteLine("GUi tien");
+            Console.WriteLine("GUi tien...");
         }
 
         public void Transfer()
