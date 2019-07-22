@@ -8,15 +8,18 @@ namespace Assm_T1808a.scenes
     {
         public void Menu(IApplicationController controller)
         {
+            if(!LoginMenu()) return;
             
-            Console.Clear();
-            Console.Out.Flush();
             while (true)
             {
+                Console.Clear();
+                Console.Out.Flush();
                 Console.WriteLine("================== NGAN HANG SHB ==================");
                 Console.WriteLine("------------------------- * -----------------------");
                 Console.WriteLine(
-                    $"Chao mung {Program.CurrentLoggedIn.GetType().GetProperty("Username")} den voi ngan hang SHB!");
+                    $"Chao mung {Program._SHB_CurrentLoggedIn.Username} den voi ngan hang SHB!");
+                Console.WriteLine($"So du: {Program._SHB_CurrentLoggedIn.Balance} VND");
+                Console.WriteLine();
                 Console.WriteLine("1. Rut tien \t \t 2. Gui tien");
                 Console.WriteLine("3. Chuyen khoan");
                 Console.WriteLine("0. Quay lai");
@@ -77,7 +80,6 @@ namespace Assm_T1808a.scenes
                         Console.WriteLine("Lua chon sai vui long chon lai!");
                         break;
                 }
-
             }
         }
     }

@@ -11,17 +11,116 @@ namespace Assm_T1808a.controller
 
         public void WithDraw()
         {
-            Console.WriteLine("Rut tien");
+            Console.Clear();
+            Console.Out.Flush();
+            // lay lai thong tin moi nhat cua Account;
+            Program._SHB_CurrentLoggedIn =
+                (SHBAccount) _model.FindByUsernameAndPassword(Program._SHB_CurrentLoggedIn.Username,
+                    Program._SHB_CurrentLoggedIn.Password);
+            Console.WriteLine("Rút tiền. \t \t Số dư của bạn: " + Program._SHB_CurrentLoggedIn.Balance);
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Vui lòng nhập số tiền bạn muốn rút: ");
+            var amount = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Lời nhắn: ");
+            var content = Console.ReadLine();
+//            Program.currentLoggedIn = model.GetAccountByUserName(Program.currentLoggedIn.Username);
+            var historyTransaction = new Transaction
+            {
+                Id = Guid.NewGuid().ToString(),
+                Type = Transaction.TransactionType.Withdraw,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                Amount = amount,
+                Content = content,
+                SenderAccountNumber = Program._SHB_CurrentLoggedIn.AccountNumber,
+                ReceiverAccountNumber = Program._SHB_CurrentLoggedIn.AccountNumber,
+                Status = Transaction.ActiveStatus.Done
+            };
+            Console.WriteLine(_model.UpdateBalance(Program._SHB_CurrentLoggedIn, historyTransaction)
+                ? "Giao dịch thành công!"
+                : "Giao dịch thất bại, vui lòng thử lại!");
+            Program._SHB_CurrentLoggedIn = (SHBAccount) _model.FindByUsernameAndPassword(Program._SHB_CurrentLoggedIn.Username, Program._SHB_CurrentLoggedIn.Password);
+            Console.WriteLine("Số dư hiện tại: " + Program._SHB_CurrentLoggedIn.Balance);
+            Console.WriteLine("Ấn enter để tiếp tục!");
+            Console.ReadLine();
         }
 
         public void Deposit()
         {
-            Console.WriteLine("GUi tien...");
+            Console.Clear();
+            Console.Out.Flush();
+            Console.WriteLine("Gửi tiền.");
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("Vui lòng nhập số tiền bạn muốn gửi: ");
+            var amount = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Lời nhắn: ");
+            var content = Console.ReadLine();
+            var historyTransaction = new Transaction
+            {
+                Id = Guid.NewGuid().ToString(),
+                Type = Transaction.TransactionType.Deposit,
+                Amount = amount,
+                Content = content,
+                SenderAccountNumber = Program._SHB_CurrentLoggedIn.AccountNumber,
+                ReceiverAccountNumber = Program._SHB_CurrentLoggedIn.AccountNumber,
+                Status = Transaction.ActiveStatus.Done
+            };
+            Console.WriteLine(_model.UpdateBalance(Program._SHB_CurrentLoggedIn, historyTransaction)
+                ? "Giao dịch thành công!"
+                : "Giao dịch thất bại, và thử lại lần nữa!");
+            Program._SHB_CurrentLoggedIn = (SHBAccount) _model.FindByUsernameAndPassword(Program._SHB_CurrentLoggedIn.Username, Program._SHB_CurrentLoggedIn.Password);
+            Console.WriteLine("Số tiền hiện tại: " + Program._SHB_CurrentLoggedIn.Balance + " vnđ");
+            Console.WriteLine("Ấn enter để tiếp tục.");
+            Console.ReadLine();
         }
 
         public void Transfer()
         {
-            Console.WriteLine("Chuyen khoan");
+            Console.Clear();
+            Console.Out.Flush();
+            Program._SHB_CurrentLoggedIn = (SHBAccount) _model.FindByUsernameAndPassword(Program._SHB_CurrentLoggedIn.Username, Program._SHB_CurrentLoggedIn.Password);
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Số dư của bạn :" + Program._SHB_CurrentLoggedIn.Balance + " vnđ");
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Vui lòng nhập số tài khoản người nhận.");
+            var stk = Console.ReadLine();
+            var account = (SHBAccount) _model.GetAccountWithAccountNumber(stk);
+            if (account == null)
+            {
+                Console.WriteLine($"Khong tim thay tai khoan voi so tai khoan la: {stk}");
+                Console.WriteLine("An enter de tiep tuc!");
+                Console.ReadLine();
+                return;
+            }
+            Program._SHB_CurrentReceiverAccountNumber = account;
+            Console.WriteLine("Thông tin người nhận.");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Họ tên: " + Program._SHB_CurrentReceiverAccountNumber.Username);
+            Console.WriteLine("Số tài khoản: " + Program._SHB_CurrentReceiverAccountNumber.AccountNumber);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Vui lòng nhập số tiền bạn muốn chuyển: ");
+            var amount = Double.Parse(Console.ReadLine());
+            Console.WriteLine("Lời nhắn: ");
+            var content = Console.ReadLine();
+            var historyTransaction = new Transaction
+            {
+                Id = Guid.NewGuid().ToString(),
+                Type = Transaction.TransactionType.Transfer,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                Amount = amount,
+                Content = content,
+                SenderAccountNumber = Program._SHB_CurrentLoggedIn.AccountNumber,
+                ReceiverAccountNumber = Program._SHB_CurrentReceiverAccountNumber.AccountNumber,
+                Status = Transaction.ActiveStatus.Done
+            };
+            Console.WriteLine(_model.UpdateBalanceWhenTransfer(historyTransaction)
+                ? "Giao dịch thành công!"
+                : "Giao dịch thất bại, và thử lại 1 lần nữa!");
+            Program._SHB_CurrentLoggedIn = (SHBAccount) _model.FindByUsernameAndPassword(Program._SHB_CurrentLoggedIn.Username, Program._SHB_CurrentLoggedIn.Password);
+            Console.WriteLine("Số tiền hiện tại: " + Program._SHB_CurrentLoggedIn.Balance + " vnđ");
+            Console.WriteLine("Ấn enter để tiếp tục.");
+            Console.ReadLine();
         }
 
         public bool DoLogin()
@@ -58,7 +157,7 @@ namespace Assm_T1808a.controller
             }
 
             // Login thành công, lưu thông tin vào biến static trong lớp Program.
-            Program.CurrentLoggedIn = shbAccount;
+            Program._SHB_CurrentLoggedIn = shbAccount;
             return true;
         }
 

@@ -10,8 +10,12 @@ namespace Assm_T1808a
 {
     class Program
     {
-        public static object CurrentLoggedIn;
-        
+        public static SHBAccount _SHB_CurrentLoggedIn;
+        public static SHBAccount _SHB_CurrentReceiverAccountNumber;
+        public static BlockChain _BL_CurrentLoggedIn;
+        public static BlockChain _BL_CurrentReceiverAccountNumber;
+
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;

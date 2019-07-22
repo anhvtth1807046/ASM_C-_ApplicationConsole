@@ -9,6 +9,8 @@ namespace Assm_T1808a.scenes
         {
             while (true)
             {
+                Console.Clear();
+                Console.Out.Flush();
                 IApplicationController controller = null;
                 IMenu menu = null;
                 Console.WriteLine("============= GIAO DICH =============");

@@ -6,7 +6,7 @@ namespace Assm_T1808a.model
     public class ConnectionHelper
     {
         private const string ServerName = "localhost";
-        private const string DatabaseName = "SHB";
+        private const string DatabaseName = "giaodichdb";
         private const string Username = "root";
         private const string Password = "";
 

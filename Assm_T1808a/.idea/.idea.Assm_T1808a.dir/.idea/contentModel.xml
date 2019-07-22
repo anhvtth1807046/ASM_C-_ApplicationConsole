@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\trinh\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\trinh\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_.19.01" t="ExcludeRecursive" />
+    <e p="C:\Users\trinh\source\repos\Assm_T1808a\Assm_T1808a" t="IncludeRecursive">
+      <e p="Assm_T1808a.csproj" t="IncludeRecursive" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="controller" t="Include">
+        <e p="BlockChainController.cs" t="Include" />
+        <e p="IApplicationController.cs" t="Include" />
+        <e p="SHBController.cs" t="Include" />
+      </e>
+      <e p="entity" t="Include">
+        <e p="BlockChain.cs" t="Include" />
+        <e p="BlockChainTransaction.cs" t="Include" />
+        <e p="SHBAccount.cs" t="Include" />
+        <e p="Transaction.cs" t="Include" />
+      </e>
+      <e p="model" t="Include">
+        <e p="BlockChainModel.cs" t="Include" />
+        <e p="ConnectionHelper.cs" t="Include" />
+        <e p="IGiaodichModel.cs" t="Include" />
+        <e p="SHBModel.cs" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp2.1" t="Include">
+            <e p="Assm_T1808a.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+      <e p="scenes" t="Include">
+        <e p="BlockChainMenu.cs" t="Include" />
+        <e p="GiaoDich.cs" t="Include" />
+        <e p="IMenu.cs" t="Include" />
+        <e p="SHBMenu.cs" t="Include" />
+      </e>
+      <e p="util" t="Include">
+        <e p="SqlStringUtil.cs" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>

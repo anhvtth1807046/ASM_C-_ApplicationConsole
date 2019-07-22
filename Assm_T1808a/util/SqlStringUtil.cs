@@ -6,7 +6,7 @@ namespace Assm_T1808a.util
 {
     class SqlStringUtil
     {
-        public String InsertString(Type type)
+        public static String InsertString(Type type)
         {
             var fieldStr = new StringBuilder();
             var fieldValue = new StringBuilder();
@@ -23,12 +23,12 @@ namespace Assm_T1808a.util
             return $"Insert into {type.Name} ({fieldStr}) values ({fieldValue})";
         }
 
-        public String SelectString(Type type)
+        public static String SelectString(Type type)
         {
             return $"Select * form {type.Name}";
         }
 
-        public String UpdateString(Type type)
+        public static String UpdateString(Type type)
         {
             var strBuilder = new StringBuilder();
             foreach (var field in type.GetProperties())
